@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>판매 내역</title>
+</head>
+<body>
+    <h1>판매 내역</h1>
+
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>구매 번호</th>
+            <th>구매 시간</th>
+        </tr>
+
+        {% for ticket in tickets %}
+        <tr>
+            <td>{{ ticket.id }}</td>
+            <td>
+                {{ ticket.num1 }},
+                {{ ticket.num2 }},
+                {{ ticket.num3 }},
+                {{ ticket.num4 }},
+                {{ ticket.num5 }},
+                {{ ticket.num6 }}
+            </td>
+            <td>{{ ticket.created_at }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="3">판매 내역이 없습니다.</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <br>
+    <a href="{% url 'home' %}">메인으로</a>
+</body>
+</html>

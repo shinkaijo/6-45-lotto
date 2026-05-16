@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>추첨 기능</title>
+</head>
+<body>
+    <h1>관리자 추첨 기능</h1>
+
+    <p>버튼을 누르면 새로운 회차의 당첨 번호 6개와 보너스 번호 1개가 생성됩니다.</p>
+
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit">추첨 실행</button>
+    </form>
+
+    <br>
+    <a href="{% url 'admin_draw_results' %}">당첨 내역 확인</a>
+    <br>
+    <a href="{% url 'home' %}">메인으로</a>
+</body>
+</html>

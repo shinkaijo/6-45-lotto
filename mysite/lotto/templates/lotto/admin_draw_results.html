@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>당첨 내역</title>
+</head>
+<body>
+    <h1>당첨 내역 확인</h1>
+
+    <table border="1">
+        <tr>
+            <th>회차</th>
+            <th>당첨 번호</th>
+            <th>보너스 번호</th>
+            <th>추첨 시간</th>
+        </tr>
+
+        {% for draw in draws %}
+        <tr>
+            <td>{{ draw.round_number }}회차</td>
+            <td>
+                {{ draw.win_num1 }},
+                {{ draw.win_num2 }},
+                {{ draw.win_num3 }},
+                {{ draw.win_num4 }},
+                {{ draw.win_num5 }},
+                {{ draw.win_num6 }}
+            </td>
+            <td>{{ draw.bonus_num }}</td>
+            <td>{{ draw.draw_date }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="4">아직 추첨 내역이 없습니다.</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <br>
+    <a href="{% url 'admin_draw' %}">추첨 화면으로</a>
+    <br>
+    <a href="{% url 'home' %}">메인으로</a>
+</body>
+</html>

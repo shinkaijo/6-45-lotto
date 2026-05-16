@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>6/45 Lotto</title>
+</head>
+<body>
+    <h1>6/45 Lotto 웹 사이트</h1>
+
+    <p>1부터 45까지의 숫자 중 6개를 선택하여 복권을 구매할 수 있습니다.</p>
+
+    <h2>일반 사용자 기능</h2>
+    <ul>
+        <li>자동 번호 구매</li>
+        <li>수동 번호 구매</li>
+        <li>당첨 확인</li>
+    </ul>
+
+    <h2>관리자 기능</h2>
+    <ul>
+        <li>판매 내역 확인</li>
+        <li>추첨 기능</li>
+        <li>당첨 내역 확인</li>
+    </ul>
+
+    <hr>
+
+    <a href="{% url 'buy_auto' %}">
+        <button>자동 번호 구매하기</button>
+    </a>
+    <a href="{% url 'buy_manual' %}">
+        <button>수동 번호 구매</button>
+    </a>
+    <a href="{% url 'check_result' %}">
+        <button>당첨 확인</button>
+    </a>
+    <hr>
+
+    <h2>관리자 기능</h2>
+
+    <a href="{% url 'admin_sales' %}">
+        <button>판매 내역 확인</button>
+    </a>
+
+    <a href="{% url 'admin_draw' %}">
+        <button>추첨 기능</button>
+    </a>
+
+    <a href="{% url 'admin_draw_results' %}">
+        <button>당첨 내역 확인</button>
+    </a>
+</body>
+</html>

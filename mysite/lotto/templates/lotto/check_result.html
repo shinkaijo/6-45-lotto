@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>당첨 확인</title>
+</head>
+<body>
+    <h1>당첨 확인</h1>
+
+    {% if winning %}
+        <h2>당첨 번호</h2>
+        <p>
+            {{ winning.win_num1 }},
+            {{ winning.win_num2 }},
+            {{ winning.win_num3 }},
+            {{ winning.win_num4 }},
+            {{ winning.win_num5 }},
+            {{ winning.win_num6 }}
+            + 보너스 {{ winning.bonus_num }}
+        </p>
+
+        <h2>내 구매 번호 결과</h2>
+
+        {% for result in results %}
+            <div>
+                <p>구매 번호: {{ result.numbers }}</p>
+                <p>일치 개수: {{ result.match_count }}개</p>
+                <p>보너스 일치: {{ result.bonus_match }}</p>
+                <p>결과: <strong>{{ result.rank }}</strong></p>
+            </div>
+            <hr>
+        {% empty %}
+            <p>구매한 복권이 없습니다.</p>
+        {% endfor %}
+
+    {% else %}
+        <p>아직 추첨된 당첨 번호가 없습니다.</p>
+    {% endif %}
+
+    <a href="{% url 'home' %}">메인으로</a>
+</body>
+</html>
