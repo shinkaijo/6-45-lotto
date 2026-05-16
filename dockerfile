@@ -1,3 +1,4 @@
+#ai로 프로그래밍
 FROM python:3.13
 
 ENV PYTHONDONTWRITEBYTECODE=1
