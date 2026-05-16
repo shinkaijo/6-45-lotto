@@ -26,6 +26,7 @@ def buy_auto(request):
 def home(request):
     return render(request, 'lotto/home.html')
 
+#ai로 프로그래밍
 def buy_manual(request):
 
     if request.method == 'POST':
@@ -59,7 +60,7 @@ def buy_manual(request):
     return render(request, 'lotto/buy_manual.html')
 
 from .models import Ticket, WinningNumber
-
+#ai로 프로그래밍
 def check_result(request):
     tickets = Ticket.objects.all().order_by('-created_at')
     winning = Draw.objects.order_by('-round_number').first()
@@ -100,6 +101,7 @@ def check_result(request):
         'winning': winning,
         'results': results,
     })
+    
 @staff_member_required
 def admin_sales(request):
     tickets = Ticket.objects.all().order_by('-created_at')
@@ -108,7 +110,7 @@ def admin_sales(request):
         'tickets': tickets
     })
 
-
+#ai로 프로그래밍
 @staff_member_required
 def admin_draw(request):
     if request.method == 'POST':
